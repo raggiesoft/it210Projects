@@ -1,0 +1,7 @@
+Snow        White    1234  100.10  25.00   33  25
+Jack        Frost    2345  500.90  200.25  33  20
+Sleeping    Beauty   3456  600.70  50.00   33  3
+Prince      Charming 6789  55.56   10.00   33  7
+Rapunzel    Repunzel 7890  350.07  125.00  33  16
+Santa       Claus    8901  5456.22 2000.00 33  19 
+Miss        Horner   9012  9800.23 250.00  33  11
