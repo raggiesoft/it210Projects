@@ -7,15 +7,6 @@
 
 using namespace std;
 
-// This prototypes reading the customer data
-void readCustomerData(char*);
-
-// This prototypes writing data
-// to both the Terminal and an
-// output log file
-void writeOutput();
-
-
 // This prototype gets the APR
 // of the interest owed, based
 // on the users card balance
@@ -23,3 +14,12 @@ void writeOutput();
 // a return of .1 would refer to
 // 10% interest
 float getAPR(float);
+
+// This prototypes the return of our Interest
+float getInterest(float);
+
+
+// This prototypes reading the customer data
+void readCustomerData(char*, char*);
+
+

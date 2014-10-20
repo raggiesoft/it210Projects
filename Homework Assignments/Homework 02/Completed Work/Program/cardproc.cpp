@@ -130,7 +130,7 @@ float getAPR(int averageDailyBalance)
 	return localAPR;
 }
 
-// This gets the amound of interest due
+// This gets the amount of interest due
 float getInterest(float averageDailyBalance)
 {
 	float interest;

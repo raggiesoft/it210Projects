@@ -61,9 +61,12 @@ int main()
 	// Print instructions to the user
 	printInstructions();
 	
+	// Let's have some spacing for Readability
+	cout << "\n\n";
+	
 	// Let's have a look at our recordset
 	// and display it to the user
-	readCustomerData("input3.txt");
+	readCustomerData("input3.txt", "output3.txt");
 	
 	system("pause");
 }
