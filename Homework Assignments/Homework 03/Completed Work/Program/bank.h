@@ -2,6 +2,11 @@
 #define BANK_H
 #endif
 
+// IT 210 Business Applications with C++
+// Programmer: Michael Ragsdale
+// Date: 10/21/2014
+// Objective: Credit Card Interest Calculator
+
 // This header prototypes out
 // functions needed by the Bank
 

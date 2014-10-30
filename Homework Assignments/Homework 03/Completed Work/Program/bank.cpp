@@ -1,3 +1,8 @@
+// IT 210 Business Applications with C++
+// Programmer: Michael Ragsdale
+// Date: 10/21/2014
+// Objective: Credit Card Interest Calculator
+
 // Preprocessor Directives
 #include <iostream>
 #include <iomanip>
@@ -78,15 +83,14 @@ void readCustomerData(char* inputRecordSet, char* outputLog)
 	
 	// Let's open the input and output logs
 	fin.open(inputRecordSet);
-	fout.open(outputLog);
 	
+
 	// Let's build the Spacing Chart NUmbers
-	buildLine('*', 59);
-	fout << "************************************************************\n";
+	buildLine('*', 59, "output3.txt");
 	cout << "123456789012345678901234567890123456789012345678901234567890\n";
+	
+	fout.open(outputLog, ios::app);
 	fout << "123456789012345678901234567890123456789012345678901234567890\n";
-	buildLine('*', 59);
-	fout << "************************************************************\n";
 	
 	// Write the Table Header
 	cout << setw(20) << left << "FULL NAME";
@@ -99,8 +103,9 @@ void readCustomerData(char* inputRecordSet, char* outputLog)
 	fout << setw(10) << right << "BALANCE";
 	fout << setw(10) << right << "APR (%)";
 	fout << setw(11) << right << "INTEREST\n";
-	buildLine('-', 59);
-	fout << "------------------------------------------------------------\n";
+	fout.close();
+	buildLine('-', 59, "output3.txt");
+	
 	
 	// Now, let's read the entries from
 	// the inputRecordSet one by one until EOF
@@ -132,6 +137,7 @@ void readCustomerData(char* inputRecordSet, char* outputLog)
 		     << fixed << getInterest(averageDailyBalance);
 		     
 		// Write to our Log
+		fout.open(outputLog, ios::app);
 		fout << setw(20) << left << firstName + " " + lastName;
 		fout << setw(10) << left << cardNumber;
 		fout << setw(10) << right << setprecision(2)
@@ -151,7 +157,7 @@ void readCustomerData(char* inputRecordSet, char* outputLog)
 		// New Line     
 		cout << "\n";
 		fout << "\n";     
-		
+		fout.close();
 		// Stops us from seeing the last record
 		// a second time
 		if (fin.peek() == '\n')
@@ -161,24 +167,27 @@ void readCustomerData(char* inputRecordSet, char* outputLog)
 		
 	// End of the Loop
 	}
-	
+	fout.open(outputLog, ios::app);
 	// Show the Total Interest owed to the Bank
 	cout << "\n";
-	buildLine('*', 49);
+	fout << "\n";
+	
+	buildLine('*', 49, "output3.txt");
 	cout << "\n";
+	fout << "\n";
+	
 	cout << "Total interest owed to the bank is $";
+	fout << "Total interest owed to the bank is $";
+	
 	cout << fixed << setprecision(2) << totalInterestOwedToBank;
 	cout << "\n\n";
-	buildLine('*', 49);
 	
-	// Write that to our Log
-	fout << "\n";
-	fout << "************************************************************\n";
-	fout << "\n";
-	fout << "Total interest owed to the bank is $";
+	
+	
 	fout << fixed << setprecision(2) << totalInterestOwedToBank;
 	fout << "\n\n";
-	fout << "************************************************************\n";
+	fout.close();
+	buildLine('*', 49, "output3.txt");
 	
 	// Close our Files
 	fin.close();

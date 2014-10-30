@@ -11,11 +11,10 @@
 // Function Prototypes
 
 // Creates our Header
-void buildHeader(int, int, int, int, int, int, char*);
+void buildHeader(int, int, int, int, int, int);
 
-// Builds a line of the specific
-// type for the specific length
-void buildLine(char, int, char*);
+// Builds the Star Line
+void buildStarLine(int);
 
 // Sets the Due Date
-void setDueDate(int, int, int, char*);
+void setDueDate(int, int, int);

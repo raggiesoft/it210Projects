@@ -1,3 +1,8 @@
+// IT 210 Business Applications with C++
+// Programmer: Michael Ragsdale
+// Date: 10/21/2014
+// Objective: Credit Card Interest Calculator
+
 // Preprocessor Directives
 #include <iostream>
 #include <iomanip>
@@ -9,11 +14,22 @@
 
 using namespace std;
 
-void printInstructions()
+void printInstructions(char* outputLog)
 {
+	// We need our Output Log
+	ofstream fout;
+	fout.open(outputLog, ios::app);
+	
 	cout << "This program calculates the interest on unpaid\n";
 	cout << "credit card balances using the average daily balance\n";
 	cout << "and the total interest owed to the Bank.\n";
+	
+	fout << "This program calculates the interest on unpaid\n";
+	fout << "credit card balances using the average daily balance\n";
+	fout << "and the total interest owed to the Bank.\n";
+	
+	fout.close();
+
 }
 
 // This is just a "Friendly Name" way to
@@ -32,6 +48,7 @@ bool doesFileExist(bool isInput,char* fileName)
 		// Does the file exist?
 		if (!fin)
 		{
+			
 			return false;
 		}
 		else

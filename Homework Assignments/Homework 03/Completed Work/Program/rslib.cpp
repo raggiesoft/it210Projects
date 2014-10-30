@@ -1,5 +1,7 @@
 // IT 210 Business Applications with C++
 // Programmer: Michael Ragsdale
+// Date: 10/21/2014
+// Objective: Credit Card Interest Calculator
 //
 // This Library of functions is used to build the
 // header of my C++ classwork applications
@@ -7,6 +9,7 @@
 // Preprocessor Directives
 #include <iostream>
 #include <iomanip>
+#include <fstream>
 
 // rslib.h contains the function prototypes
 // to construct the Header seen in my assignments
@@ -15,29 +18,51 @@ using namespace std;
 // List of functions
 // This builds our Header
 void buildHeader(int assignNum, int progNum, int progTot,
-int dueDay, int dueMonth, int dueYear)
+int dueDay, int dueMonth, int dueYear, char* outputLog)
 {
 	// Begin by building the basic header
 	
-	buildLine('*',43);
+	
+	// Open the output log, start the cursor At The End of the file,
+	// and APPend this text to the end:
+	
+	buildLine('*', 43, outputLog);
+	
+	// We need our output log
+	ofstream fout;
+	
+	fout.open(outputLog, ios::app);
 	cout << "*   IT210 Business Applications with C++   *" << endl;
 	cout << "*   Programmer: Michael Ragsdale           *" << endl;
+	fout << "*   IT210 Business Applications with C++   *" << endl;
+	fout << "*   Programmer: Michael Ragsdale           *" << endl;
 	
+	fout.close();
 	// Print out the due date
-	setDueDate(dueMonth, dueDay, dueYear);
+	setDueDate(dueMonth, dueDay, dueYear, outputLog);
 	
 	// Print out the Assignment Number
 	cout << "*   Assignment " << assignNum << " - Program "
 	<< progNum << " of " << progTot << "          *" << endl;
 	
+	// Reopen the Log
+	fout.open(outputLog, ios::app);
+	fout << "*   Assignment " << assignNum << " - Program "
+	<< progNum << " of " << progTot << "          *" << endl;
+
+	fout.close();
 	// The closing Star Line
-	buildLine('*',43);
+	buildLine('*',43, outputLog);
 }
 
 // Builds a line of stars
-void buildLine(char lineType, int totalStars)
+void buildLine(char lineType, int totalStars, char* outputLog)
 {
-	// Let's build the first line of stars
+	// Let's build the first line of characters
+	// Open the output log
+	ofstream fout;
+	fout.open(outputLog, ios::app);
+	
 	
 	// First, we need an integer counter
 	int i = 0;
@@ -49,6 +74,7 @@ void buildLine(char lineType, int totalStars)
 		if (i != totalStars)
 		{
 			cout << lineType;
+			fout << lineType;
 			i++; // Count up
 		}
 		
@@ -57,17 +83,24 @@ void buildLine(char lineType, int totalStars)
 		else
 		{
 			cout << lineType << "\n";
+			fout << lineType << "\n";
 			i++; // Count up
 		}	
 	}
+	
+	fout.close();
 }
 
 // Writes out the Due Date line
-void setDueDate(int dueMonth, int dueDay, int dueYear)
+void setDueDate(int dueMonth, int dueDay, int dueYear, char* outputLog)
 {
+	// Let's open the Output Log
+	ofstream fout;
+	fout.open(outputLog, ios::app);
+	
 	// Print out the beginning of the line
 	cout << "*   Date: ";
-	
+	fout << "*   Date: ";
 	// A switch for the month
 	// Remember: indexes are
 	// ZERO-based
@@ -75,59 +108,75 @@ void setDueDate(int dueMonth, int dueDay, int dueYear)
 	{
 		case 0:
 			cout << "Jan";
+			fout << "Jan";
 			break;
 		case 1:
 			cout << "Feb";
+			fout << "Feb";
 			break;
 		case 2:
 			cout << "Mar";
+			fout << "Mar";
 			break;
 		case 3:
 			cout << "Apr";
+			fout << "Apr";
 			break;
 		case 4:
 			cout << "May";
+			fout << "May";
 			break;
 		case 5:
 			cout << "Jun";
+			fout << "Jun";
 			break;
 		case 6:
 			cout << "Jul";
+			fout << "Jul";
 			break;
 		case 7:
 			cout << "Aug";
+			fout << "Aug";
 			break;
 		case 8:
 			cout << "Sep";
+			fout << "Sep";
 			break;
 		case 9:
 			cout << "Oct";
+			fout << "Oct";
 			break;
 		case 10:
 			cout << "Nov";
+			fout << "Nov";
 			break;
 		case 11:
 			cout << "Dec";
+			fout << "Dec";
 			break;
 		default:
 			cout << "ERR";
+			fout << "ERR";
 			break;
 	}
 	
 	// Space between the Month and the Day
 	cout << " ";
+	fout << " ";
 	
 	// Switch for the day.  Add a 0
 	// for spacing reasons if needed
 	if (dueDay < 10)
 	{
 		cout << "0" << dueDay;
+		fout << "0" << dueDay;
 	}
 	else
 	{
 		cout << dueDay;
+		fout << dueDay;
 	}
 	cout << ", " << dueYear << "                     *" << endl;
-	
-	
+	fout << ", " << dueYear << "                     *" << endl;
+	fout.close();
 }
