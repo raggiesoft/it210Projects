@@ -26,3 +26,6 @@ float getIncome();
 
 // Let's get the Rate
 float getRate(float);
+
+// Let's prototype our Output
+void showOutput(string, float, float, char*);

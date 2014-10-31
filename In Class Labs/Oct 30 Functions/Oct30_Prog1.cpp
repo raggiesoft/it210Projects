@@ -34,6 +34,18 @@ int main()
 	// Let's erase the current contents
 	// to start things over from scratch
 	fout.open("foutlog.txt");
+	
+	// Unable to create output log
+	// in a Non-Writable Directory?
+	// Exit with ERROR_DIR_READ_ONLY
+	if (!fout)
+	{
+		cout << "UNABLE TO CREATE OUTPUT LOG!  NOW EXITING!";
+		system("pause");
+		return 1;
+	}
+	
+	
 	fout << "";
 	
 	// Close the Log
@@ -53,33 +65,14 @@ int main()
 	// first and last name
 	userName = getUserName();
 	
-	// Now, we output it to both the terminal
-	// and the Log
-	
-	// The log needs to be opened
-	// The cursor needs to be
-	// * At The End of the file
-	// * APPend the line to the file (NOT overwrite)
-	fout.open("foutlog.txt", ios::ate | ios::app);
-	
-	// Output the name to the Terminal
-	cout << "Your name is " << userName << "\n";
-	
-	// Write to our log
-	fout << "Your name is " << userName << "\n";
-	
-	// Let's get the user's income
+	// We need the User's Income
 	userIncome = getIncome();
-	cout << "Income = $" << fixed << setprecision(2) << userIncome << "\n";
-	fout << "Income = $" << fixed << setprecision(2) << userIncome << "\n";
 	
-	// Let's get the Rate
+	// We need to get the Rate
 	userRate = getRate(userIncome);
-	cout << "Rate = " << (userRate * 100) << "%\n";
-	fout << "Rate = " << (userRate * 100) << "%\n";
 	
-	// Close the Log
-	fout.close();
+	// Display it to the User
+	showOutput(userName, userIncome, userRate, "foutlog.txt");
 	
 	// Pause the Terminal
 	system("pause");
@@ -123,4 +116,39 @@ float getRate(float income)
 		rate = 0.1;
 	}
 	return rate;
+}
+
+// Let's send the user data to both the Terminal
+// and Output Log
+void showOutput(string userName, float userIncome, float userRate, char* outputLog)
+{
+	// Now, we output it to both the terminal
+	// and the Log
+	
+	// Reserve a Block of Memory
+	// for an output log
+	ofstream fout;
+	
+	// The log needs to be opened
+	// The cursor needs to be
+	// * At The End of the file
+	// * APPend the line to the file (NOT overwrite)
+	fout.open(outputLog, ios::ate | ios::app);
+	
+	// Output the name to the Terminal
+	cout << "Your name is " << userName << "\n";
+	
+	// Write to our log
+	fout << "Your name is " << userName << "\n";
+	
+	// Let's get the user's income
+	cout << "Income = $" << fixed << setprecision(2) << userIncome << "\n";
+	fout << "Income = $" << fixed << setprecision(2) << userIncome << "\n";
+	
+	// Let's get the Rate
+	cout << "Rate = " << (userRate * 100) << "%\n";
+	fout << "Rate = " << (userRate * 100) << "%\n";
+	
+	// Close the Log
+	fout.close();
 }
