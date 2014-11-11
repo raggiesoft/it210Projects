@@ -1,9 +1,8 @@
 ********************************************
 *   IT210 Business Applications with C++   *
 *   Programmer: Michael Ragsdale           *
-*   Date: Oct 30, 2014                     *
+*   Date: Nov 04, 2014                     *
 *   Assignment 1 - Program 1 of 1          *
 ********************************************
-Your name is Michael Ragsdale
-Income = $25000.00
-Rate = 10.00%
+Your name is Michael
+Michael, the average of your two numbers is 49.5

@@ -40,7 +40,7 @@ int main()
 	// Exit with ERROR_DIR_READ_ONLY
 	if (!fout)
 	{
-		cout << "UNABLE TO CREATE OUTPUT LOG!  NOW EXITING!";
+		cout << "UNABLE TO CREATE OUTPUT LOG!  NOW EXITING!\n";
 		system("pause");
 		return 1;
 	}

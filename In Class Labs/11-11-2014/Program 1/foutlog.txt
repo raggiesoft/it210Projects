@@ -1,0 +1,22 @@
+********************************************
+*   IT210 Business Applications with C++   *
+*   Programmer: Michael Ragsdale           *
+*   Date: Nov 11, 2014                     *
+*   Assignment 1 - Program 1 of 1          *
+********************************************
+Value of someName in main = Samantha
+Memory address of someName in main = 0x23fe20
+--------------------------
+
+Value of someName in getValue() = Rachel
+Memory address of someName in getValue() = 0x23fe30
+New Value of someName in main = Samantha
+Memory address of someName in main = 0x23fe20
+--------------------------
+
+Value of someName in getReference() = Caroline
+Memory address of name in getReference() = 0x23fe20
+New Value of someName in main = Caroline
+Memory address of someName in main = 0x23fe20
+--------------------------
+
