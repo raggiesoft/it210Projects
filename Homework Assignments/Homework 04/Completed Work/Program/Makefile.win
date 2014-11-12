@@ -1,0 +1,42 @@
+# Project: Nov20_Prog1
+# Makefile created by Dev-C++ 5.7.1
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+RES      = Nov20_Prog1_private.res
+OBJ      = nov20_prog1.o rslib.o rsfunct.o bank.o $(RES)
+LINKOBJ  = nov20_prog1.o rslib.o rsfunct.o bank.o $(RES)
+LIBS     = -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib" -L"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include"
+CXXINCS  = -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include" -I"C:/Program Files (x86)/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.8.1/include/c++"
+BIN      = Nov20_Prog1.exe
+CXXFLAGS = $(CXXINCS) 
+CFLAGS   = $(INCS) 
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CPP) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+nov20_prog1.o: nov20_prog1.cpp
+	$(CPP) -c nov20_prog1.cpp -o nov20_prog1.o $(CXXFLAGS)
+
+rslib.o: rslib.cpp
+	$(CPP) -c rslib.cpp -o rslib.o $(CXXFLAGS)
+
+rsfunct.o: rsfunct.cpp
+	$(CPP) -c rsfunct.cpp -o rsfunct.o $(CXXFLAGS)
+
+bank.o: bank.cpp
+	$(CPP) -c bank.cpp -o bank.o $(CXXFLAGS)
+
+Nov20_Prog1_private.res: Nov20_Prog1_private.rc 
+	$(WINDRES) -i Nov20_Prog1_private.rc --input-format=rc -o Nov20_Prog1_private.res -O coff 
+

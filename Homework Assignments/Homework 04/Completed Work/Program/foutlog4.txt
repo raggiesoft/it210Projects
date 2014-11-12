@@ -1,0 +1,28 @@
+********************************************
+*   IT210 Business Applications with C++   *
+*   Programmer: Michael Ragsdale           *
+*   Date: Nov 20, 2014                     *
+*   Assignment 1 - Program 1 of 1          *
+********************************************
+
+INPUT AND OUTPUT TEXT FILES WERE OPENED SUCCESSFULLY!
+
+This program calculates the interest on unpaid
+credit card balances using the average daily balance
+and the total interest owed to the Bank.
+************************************************************
+123456789012345678901234567890123456789012345678901234567890
+FULL NAME           CARD #       BALANCE   APR (%)  INTEREST
+------------------------------------------------------------
+Snow White          1234          100.10      5.00      0.34
+Jack Frost          2345          500.90     10.00      3.16
+Sleeping Beauty     3456          600.70     10.00      4.97
+Prince Charming     6789           55.56      5.00      0.22
+Rapunzel Repunzel   7890          350.07     10.00      2.41
+Santa Claus         8901         5456.22     15.00     53.81
+Miss Horner         9012         9800.23     15.00    121.46
+**************************************************
+
+Total interest owed to the bank is $186.37
+
+**************************************************
